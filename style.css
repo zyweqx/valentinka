@@ -1,168 +1,137 @@
 body {
-  background: linear-gradient(135deg, #ffe4e1, #ffc0cb);
-  font-family: Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffd6e8, #fff);
+  font-family: 'Quicksand', sans-serif;
   text-align: center;
+  position: relative;
   overflow-x: hidden;
 }
 
 .title {
+  margin-top: 40px;
   font-size: 3em;
   color: #c2185b;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-top: 20px;
+  font-weight: 700;
 }
 
 .title-heart {
-  width: 50px;
-  height: auto;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  margin-left: 12px;
+  opacity: 0.85;
 }
 
 .subtitle {
-  font-size: 1.8em;
-  color: #ad1457;
+  font-size: 1.6em;
+  color: #c2185b;
   margin-bottom: 40px;
 }
 
+/* 💖 Сердечки */
+.hearts {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  bottom: -40px;
+  width: 30px;
+  height: 30px;
+  opacity: 0.4;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120vh); }
+}
+
+/* 🎁 Подарки */
 .gifts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  justify-items: center;
-  max-width: 800px;
-  margin: 0 auto 50px auto;
-}
-
-.gift {
+  max-width: 900px;
+  margin: 0 auto 60px;
   position: relative;
-  width: 230px;
-  height: 230px;
-  cursor: pointer;
-}
-
-/* Белый фон за каждым подарком */
-.gift-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  border-radius: 20px;
-  z-index: 0;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
-
-.gift-box,
-.gift-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  z-index: 1;
+  z-index: 5;
 }
 
 .gift {
-  position: relative;  /* важно для центрирования содержимого внутри подарка */
-  width: 220px;        /* размер подарка */
-  height: 220px;
   cursor: pointer;
 }
 
-/* Белый фон за подарком */
-.gift-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #fff;
+.gift-box {
+  background: white;
   border-radius: 20px;
-  z-index: 0;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  padding: 15px;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease;
 }
 
-/* Содержимое подарка */
+.gift:hover .gift-box {
+  transform: scale(1.05);
+}
+
+.gift-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 🎀 Контент подарка */
 .gift-content {
-  position: absolute;   /* теперь абсолютно внутри .gift */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: #fff;
-  padding: 5px;
-  width: 80%;
-  height: 80%;
+  position: absolute;
+  inset: 15px;
+  background: white;
   border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
-  z-index: 2;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transform: scale(0.7);
+  transition: all 0.4s ease;
+  text-align: center;
+  padding: 10px;
 }
 
 .gift.open .gift-content {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+  transform: scale(1);
 }
 
-.gift-content img {
+.gift.open .gift-img {
+  opacity: 0;
+}
+
+.gift-content.text {
+  font-size: 1.15em;
+  color: #c2185b;
+  font-weight: 600;
+}
+
+.gift-content.image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 10px;
 }
-
-.gift-content p {
-  color: #c2185b;
-  font-size: 1.1em;
-  margin: 0;
-}
-
-
-/* Летающие сердечки */
-.heart {
-  position: absolute;
-  bottom: 0;
-  pointer-events: none;
-  opacity: 0.4;
-  width: 25px;
-  animation: float 12s linear infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
-  100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
-}
-
-@media (max-width: 430px) { /* iPhone */
-  .gifts {
-    gap: 14px; /* аккуратные отступы */
-  }
-
-  .gift {
-    width: 115px;
-    height: 115px;
-  }
-
-  .gift-content {
-    width: 82%;
-    height: 82%;
-  }
-
-  .title {
-    font-size: 1.7em;
-  }
-
-  .subtitle {
-    font-size: 1.1em;
-  }
+.title-heart {
+  width: 36px;
+  height: 36px;
+  vertical-align: middle;
+  margin-left: 10px;
+  opacity: 0.8;
 }
