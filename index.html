@@ -1,61 +1,87 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>С 14 февраля</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>С 14 февраля 💖</title>
+  <link rel="stylesheet" href="style.css">
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
 
-<h1 class="title">
-  С 14 февраля, мой любимый
-  <img src="images/heart.png" class="title-heart" alt="сердце">
+  <div class="hearts"></div>
+
+  <h1 class="title">
+  с 14 февраля любимый темочка
+  <img src="images/heart.png" class="title-heart">
 </h1>
-<p class="subtitle">Нажми на подарки</p>
+  <p class="subtitle">нажми на подарочки</p>
 
-<div class="gifts">
+  <div class="gifts">
 
-  <!-- Верхний ряд: картинка – текст – картинка -->
+  <!-- 1 — картинка -->
   <div class="gift" onclick="toggleGift(this)">
-    <div class="gift-bg"></div>
-    <img src="images/podarock.png" class="gift-box">
-    <div class="gift-content"><img src="images/gift1.JPG"></div>
+    <div class="gift-box">
+      <img src="images/gift.png" class="gift-img">
+      <div class="gift-content image">
+        <img src="images/photo1.jpg">
+      </div>
+    </div>
   </div>
 
+  <!-- 2 — текст -->
   <div class="gift" onclick="toggleGift(this)">
-    <div class="gift-bg"></div>
-    <img src="images/podarock.png" class="gift-box">
-    <div class="gift-content"><p>Ты мое счастье ❤️</p></div>
+    <div class="gift-box">
+      <img src="images/gift.png" class="gift-img">
+      <div class="gift-content text">
+        я тебя очен сильно люблю
+      </div>
+    </div>
   </div>
 
+  <!-- 3 — картинка -->
   <div class="gift" onclick="toggleGift(this)">
-    <div class="gift-bg"></div>
-    <img src="images/podarock.png" class="gift-box">
-    <div class="gift-content"><img src="images/gift1.JPG"></div>
+    <div class="gift-box">
+      <img src="images/gift.png" class="gift-img">
+      <div class="gift-content image">
+        <img src="images/photo2.jpg">
+      </div>
+    </div>
   </div>
 
-  <!-- Нижний ряд: текст – картинка – текст -->
+  <!-- 4 — текст -->
   <div class="gift" onclick="toggleGift(this)">
-    <div class="gift-bg"></div>
-    <img src="images/podarock.png" class="gift-box">
-    <div class="gift-content"><p>Я люблю тебя безмерно 💕</p></div>
+    <div class="gift-box">
+      <img src="images/gift.png" class="gift-img">
+      <div class="gift-content text">
+        кещка шилтон высылает тебе свои валентинки
+      </div>
+    </div>
   </div>
 
+  <!-- 5 — картинка -->
   <div class="gift" onclick="toggleGift(this)">
-    <div class="gift-bg"></div>
-    <img src="images/podarock.png" class="gift-box">
-    <div class="gift-content"><img src="images/gift1.JPG"></div>
+    <div class="gift-box">
+      <img src="images/gift.png" class="gift-img">
+      <div class="gift-content image">
+        <img src="images/photo3.jpg">
+      </div>
+    </div>
   </div>
 
+  <!-- 6 — текст -->
   <div class="gift" onclick="toggleGift(this)">
-    <div class="gift-bg"></div>
-    <img src="images/podarock.png" class="gift-box">
-    <div class="gift-content"><p>С тобой каждый день — праздник 🎉</p></div>
+    <div class="gift-box">
+      <img src="images/gift.png" class="gift-img">
+      <div class="gift-content text">
+        ты самый классный парень на планете
+      </div>
+    </div>
   </div>
 
 </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
